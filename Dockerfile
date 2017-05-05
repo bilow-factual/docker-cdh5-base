@@ -1,6 +1,6 @@
 FROM factual/docker-base-java
 
-ENV CDH_VERSION 5.8
+ENV CDH_VERSION 5.11
 COPY cloudera.pref /etc/apt/preferences.d/cloudera.pref
 RUN echo "deb [arch=amd64] http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh trusty-cdh${CDH_VERSION} contrib" >> /etc/apt/sources.list.d/cloudera.list && \
     echo "deb-src http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh trusty-cdh${CDH_VERSION} contrib" >> /etc/apt/sources.list.d/cloudera.list && \
@@ -15,7 +15,7 @@ RUN echo "deb [arch=amd64] http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/
       krb5-user \
       lsof
 
-RUN ln -s /usr/share/java/slf4j-simple-1.7.5.jar /usr/lib/hadoop/lib/
+
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
