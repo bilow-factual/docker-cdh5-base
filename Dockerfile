@@ -1,9 +1,9 @@
 FROM factual/docker-base-java
 
-ARG UBUNTU_VERSION_NAME=xenial
 ENV CDH_VERSION=5.13 \
     HADOOP_CONF_DIR=/etc/hadoop/conf \
-    HADOOP_VERSION=2.6
+    HADOOP_VERSION=2.6 \
+    UBUNTU_VERSION_NAME=xenial
 
 COPY cloudera.pref /etc/apt/preferences.d/cloudera.pref
 RUN echo "deb [arch=amd64] http://archive.cloudera.com/cdh5/ubuntu/$UBUNTU_VERSION_NAME/amd64/cdh $UBUNTU_VERSION_NAME-cdh${CDH_VERSION} contrib" >> /etc/apt/sources.list.d/cloudera.list && \
